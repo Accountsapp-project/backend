@@ -45,12 +45,12 @@ public class AccountsappApplication implements CommandLineRunner{
 	        		User user = new User();
 	            	userController.loginUser(user);
 	        	}
-	        	else if(ch == 3) {
-	        
-	        		User user = new User();
-	        		userController.resetPassword(user);
-	        		
-	        	}
+//	        	else if(ch == 3) {
+//	        
+//	        		User user = new User();
+//	        		userController.resetPassword(user);
+//	        		
+//	        	}
 //	        	else if(ch == 4) {
 //	        		userController.displayUser();
 //	        	}11

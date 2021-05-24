@@ -26,13 +26,5 @@ public class UserService {
 		return userRepository.findByUsernameAndPassword(username,password);
 	}
 	
-	public void deleteUser(String username) {
-		userRepository.deleteAllByUsername(username);
-	}
 	
-	public User resetPassword(User user) {
-		String tempUsername = user.getUsername();
-		deleteUser(tempUsername);
-		return userRepository.save(user);
-	}
 }

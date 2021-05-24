@@ -50,17 +50,5 @@ public class UserController {
 		return tempUser;
 	}
 	
-	@PostMapping("/reset-password")
-	@CrossOrigin(origins = "http://localhost:4200")
-	public User resetPassword(@RequestBody User user) throws Exception {
-		User tempUser = null;
-		String tempUsername = user.getUsername();
-		if(tempUsername != null) {
-			tempUser = userService.resetPassword(user);
-		}
-		if(tempUser ==null) {
-			throw new Exception("username not found");
-		}
-		return tempUser;
-	}
+	
 }
