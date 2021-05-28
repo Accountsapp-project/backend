@@ -42,18 +42,18 @@ public class AccountsappApplication implements CommandLineRunner{
 	            
 	        	}
 	        	else if(ch == 2) {
-	        		User user = new User();
+	        		User user = new User("vasee002@gmail.com","vaseekaran","vasee@vtr","8610063079");
 	            	userController.loginUser(user);
 	        	}
-//	        	else if(ch == 3) {
-//	        
-//	        		User user = new User();
-//	        		userController.resetPassword(user);
-//	        		
-//	        	}
-//	        	else if(ch == 4) {
-//	        		userController.displayUser();
-//	        	}11
+	        	else if(ch == 3) {
+	                String temp = "vaseekaran";
+	        		User user = new User();
+	        		userController.fetchUserDetails(temp);
+	        		
+	        	}
+	        	else if(ch == 4) {
+	        		userController.searchBar("vas");;
+	        	}
 	        	else if(ch == 0) {
 	        		System.out.println("Exited");
 	        		break;

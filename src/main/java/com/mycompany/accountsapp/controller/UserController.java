@@ -1,9 +1,13 @@
 package com.mycompany.accountsapp.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mycompany.accountsapp.service.UserService;
@@ -42,12 +46,35 @@ public class UserController {
 			tempUser = userService.fetchUserByUsernameAndPassword(tempUsername, tempPassword);
 		}
 		if(tempUser == null) {
-			throw new Exception("wrong credentials");
+			throw new Exception("wrodng credentials");
 		}
 		else {
 			System.out.println("Login success");
 		}
 		return tempUser;
+	}
+	
+	@GetMapping("/profile")
+	@CrossOrigin(origins = "http://localhost:8100")
+	public User fetchUserDetails(@RequestParam(value = "username") String tempUsername) {
+		User tempUser = null;
+		System.out.println("user"+tempUsername);
+		if(tempUsername != null) {
+			tempUser = userService.findByUsername(tempUsername);
+		}
+		System.out.println(tempUser.getEmail());
+		return tempUser;
+	}
+	
+
+	@GetMapping("/mainpage")
+	@CrossOrigin(origins = "http://localhost:8100")
+	public List<User> searchBar(@RequestParam(value = "searchbar") String username) {
+		List<User> tempList = userService.fetchAllRows(username);
+		for(User user: tempList) {
+			System.out.println(user.getUsername());
+		}
+		return tempList;
 	}
 	
 	

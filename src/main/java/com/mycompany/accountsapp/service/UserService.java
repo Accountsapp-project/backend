@@ -1,10 +1,14 @@
 package com.mycompany.accountsapp.service;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mycompany.accountsapp.repository.UserRepository;
 import com.mycompany.accountsapp.user.User;
+
 
 
 
@@ -26,5 +30,14 @@ public class UserService {
 		return userRepository.findByUsernameAndPassword(username,password);
 	}
 	
+	public User findByUsername(String username) {
+		return userRepository.findByUsername(username);
+	}
 	
+	public List<User> fetchAllRows(String username){
+		if(username != null) {
+			return userRepository.findAll(username);
+		}
+		return userRepository.findAll();
+	}
 }

@@ -5,6 +5,10 @@
  */
 package com.mycompany.accountsapp.user;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -35,7 +39,10 @@ public class User {
 		this.password = password;
 		this.phone = phone;
 	}
-
+     
+//	@ElementCollection  
+//    private List<User> address=new ArrayList<User>();
+	
 	public String getEmail() {
 		return email;
 	}
