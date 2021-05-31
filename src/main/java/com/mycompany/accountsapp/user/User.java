@@ -16,7 +16,7 @@ import javax.transaction.Transactional;
 
 /**
  *
- * @author vasee
+ * @author Srikanth
  */
 @Entity
 @Table(name = "userdetails")

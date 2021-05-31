@@ -77,5 +77,19 @@ public class UserController {
 		return tempList;
 	}
 	
+	@GetMapping("/profileedit")
+	@CrossOrigin(origins="http://localhost:8100")
+	public void changePassword( User user,String newpassword) throws Exception{
+		User tempuser=null;
+		tempuser=loginUser(user);
+		if(tempuser.getPassword().equals(user.getPassword()))
+		{
+			userService.updatePassword(newpassword,user.getPassword());
+		}	
+		else
+			throw new Exception("Wrong Current Password!");
+		
+			
+	}
 	
 }

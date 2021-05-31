@@ -37,7 +37,7 @@ public class AccountsappApplication implements CommandLineRunner{
 	        	int ch = sc.nextInt();	 	
 	        	if(ch == 1) {
 	      
-	            	User user = new User();
+	            	User user = new User("vasee002@gmail.com","vaseekaran","vasee@vtr","8610063079");
 	            	userController.insertUser(user);
 	            
 	        	}
@@ -52,7 +52,11 @@ public class AccountsappApplication implements CommandLineRunner{
 	        		
 	        	}
 	        	else if(ch == 4) {
-	        		userController.searchBar("vas");;
+	        		//userController.searchBar("vas");;
+	        		User user=new User("vasee002@gmail.com","vaseekaran","vasee@vtr","8610063079");
+	        		
+	        		String newpassword="shakku";
+	        		userController.changePassword(user, newpassword);
 	        	}
 	        	else if(ch == 0) {
 	        		System.out.println("Exited");

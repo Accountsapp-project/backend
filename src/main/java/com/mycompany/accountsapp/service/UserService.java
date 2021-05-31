@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import com.mycompany.accountsapp.repository.UserRepository;
@@ -39,5 +40,9 @@ public class UserService {
 			return userRepository.findAll(username);
 		}
 		return userRepository.findAll();
+	}
+	public void updatePassword(String password,String password1)
+	{
+		userRepository.updatePassword(password, password1);
 	}
 }
