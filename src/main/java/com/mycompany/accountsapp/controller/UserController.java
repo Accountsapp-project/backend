@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mycompany.accountsapp.pojo.User;
 import com.mycompany.accountsapp.service.UserService;
-import com.mycompany.accountsapp.user.User;
 
 
 @RestController
@@ -77,10 +77,11 @@ public class UserController {
 		return tempList;
 	}
 	
-	@GetMapping("/profileedit")
+	@PostMapping("/profileedit")
 	@CrossOrigin(origins="http://localhost:8100")
-	public void changePassword( User user,String newpassword) throws Exception{
+	public void changePassword(@RequestBody User user,@RequestParam(value = "newpassword") String newpassword,@RequestParam(value = "newusername") String newUsername) throws Exception{
 		User tempuser=null;
+		System.out.println("logged  "+user.getUsername());
 		tempuser=loginUser(user);
 		if(tempuser.getPassword().equals(user.getPassword()))
 		{
@@ -88,8 +89,9 @@ public class UserController {
 		}	
 		else
 			throw new Exception("Wrong Current Password!");
-		
-			
+		if(!tempuser.getUsername().equals(newUsername)){
+			userService.updateUsername(newUsername,user.getUsername());
+		} 
 	}
 	
 }

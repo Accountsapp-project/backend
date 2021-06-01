@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
+import com.mycompany.accountsapp.pojo.User;
 import com.mycompany.accountsapp.repository.UserRepository;
-import com.mycompany.accountsapp.user.User;
 
 
 
@@ -44,5 +44,9 @@ public class UserService {
 	public void updatePassword(String password,String password1)
 	{
 		userRepository.updatePassword(password, password1);
+	}
+	
+	public void updateUsername(String username,String username1) {
+		userRepository.updateUsername(username, username1);
 	}
 }

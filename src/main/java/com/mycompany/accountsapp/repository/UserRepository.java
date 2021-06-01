@@ -9,12 +9,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.mycompany.accountsapp.user.User;
+import com.mycompany.accountsapp.pojo.User;
 
 
 
 @Repository
-public interface UserRepository extends CrudRepository<User,String> {
+public interface UserRepository extends CrudRepository<User,Integer> {
 	@Query("select u from User u where u.username like %?1%")
     public List<User> findAll(String Username);
 	public List<User> findAll();
@@ -27,4 +27,9 @@ public interface UserRepository extends CrudRepository<User,String> {
 	@Transactional
 	@Query("update User set password=?1 where password=?2")
 	public void  updatePassword(String password,String password1);
+	
+	@Modifying
+	@Transactional
+	@Query("update User set username=?1 where username=?2")
+	public void updateUsername(String username,String username1);
 }
