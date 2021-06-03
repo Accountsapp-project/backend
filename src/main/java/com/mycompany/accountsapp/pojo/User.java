@@ -23,6 +23,8 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.transaction.Transactional;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  *
  * @author Srikanth
@@ -41,7 +43,7 @@ public class User {
     private String password;
     private String phone;
     
-    
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL,mappedBy = "users")
     private Set<Group> groups = new HashSet<Group>();
     

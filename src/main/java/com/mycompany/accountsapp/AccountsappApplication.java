@@ -55,7 +55,7 @@ public class AccountsappApplication implements CommandLineRunner{
 	        		groupController.createGroup(group);
 	        	}
 	        	else if(ch == 2) {
-	        		User user = new User("vasee002@gmail.com","vaseekaran","vasee@vtr","8610063079");
+	        		User user = new User("vasee002@gmail.com","vaseekaran","vasee@123","8610063079");
 	            	userController.loginUser(user);
 	        	}
 	        	else if(ch == 3) {

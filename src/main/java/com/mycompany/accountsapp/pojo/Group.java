@@ -15,6 +15,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "groups")
 public class Group {
@@ -26,6 +28,7 @@ public class Group {
 	 private String group_name;
 	 private String status;
 	
+	 @JsonIgnore
 	 @ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	 @JoinTable(name = "user_group",
 	 		joinColumns = { @JoinColumn(name = "group_id")},
@@ -41,6 +44,7 @@ public class Group {
 		this.group_name = group_name;
 		this.status = status;
 	 }
+	 
 	public long getGroup_id() {
 		return group_id;
 	}

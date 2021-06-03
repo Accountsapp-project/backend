@@ -42,6 +42,7 @@ public class UserController {
 		User tempUser = null;
 		String tempUsername = user.getUsername();
 		String tempPassword = user.getPassword();
+		System.out.println("username : "+tempUsername + "password : "+tempPassword);
 		if(tempUsername != null && tempPassword != null) {
 			tempUser = userService.fetchUserByUsernameAndPassword(tempUsername, tempPassword);
 		}
