@@ -1,6 +1,7 @@
 package com.mycompany.accountsapp.controller;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mycompany.accountsapp.pojo.Group;
 import com.mycompany.accountsapp.pojo.User;
 import com.mycompany.accountsapp.service.UserService;
 
@@ -72,8 +74,11 @@ public class UserController {
 	@CrossOrigin(origins = "http://localhost:8100")
 	public List<User> searchBar(@RequestParam(value = "searchbar") String username) {
 		List<User> tempList = userService.fetchAllRows(username);
+		Set<Group> tempgrp = null;
 		for(User user: tempList) {
-			System.out.println(user.getUsername());
+			tempgrp = user.getGroups();
+			for (Group value : tempgrp)
+	            System.out.print(value.getGroup_name());
 		}
 		return tempList;
 	}

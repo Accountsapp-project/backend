@@ -44,7 +44,7 @@ public class User {
     private String phone;
     
     @JsonIgnore
-    @ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL,mappedBy = "users")
+    @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL,mappedBy = "users")
     private Set<Group> groups = new HashSet<Group>();
     
     public User() {
