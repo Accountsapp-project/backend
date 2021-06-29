@@ -14,7 +14,7 @@ import com.mycompany.accountsapp.pojo.User;
 
 
 @Repository
-public interface UserRepository extends CrudRepository<User,Integer> {
+public interface UserRepository extends CrudRepository<User,Long> {
 	@Query("select u from User u where u.username like %?1%"
 			+ "or u.phone like %?1%"
 			+ "or u.email like %?1%"

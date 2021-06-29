@@ -24,12 +24,12 @@ public class Group {
 	
 	@Id
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
-	 private long group_id;
-	 private String group_name;
+	 private long id;
+	 private String name;
 	 private String status;
 	
 	 @JsonIgnore
-	 @ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	 @ManyToMany
 	 @JoinTable(name = "user_group",
 	 		joinColumns = { @JoinColumn(name = "group_id")},
 	 		inverseJoinColumns = {@JoinColumn( name = "user_id")}
@@ -39,24 +39,33 @@ public class Group {
 	 public Group() {
 		 
 	 }
-	 public Group(String group_name, String status) {
-		super();
-		this.group_name = group_name;
-		this.status = status;
-	 }
+	
 	 
-	public long getGroup_id() {
-		return group_id;
+	
+	public long getId() {
+		return id;
 	}
-	public void setGroup_id(long group_id) {
-		this.group_id = group_id;
+
+
+
+	public void setId(long id) {
+		this.id = id;
 	}
-	public String getGroup_name() {
-		return group_name;
+
+
+
+	public String getName() {
+		return name;
 	}
-	public void setGroup_name(String group_name) {
-		this.group_name = group_name;
+
+
+
+	public void setName(String name) {
+		this.name = name;
 	}
+
+
+
 	public String getStatus() {
 		return status;
 	}

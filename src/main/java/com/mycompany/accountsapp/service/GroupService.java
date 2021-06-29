@@ -1,5 +1,6 @@
 package com.mycompany.accountsapp.service;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,16 @@ public class GroupService {
 		return groupRepository.save(group);
 	}
     
-	
-	
-	
+	public boolean isUserPresent(Group group,Long userId) {
+		 Iterator<User> iter = group.getUsers().iterator();
+		 while (iter.hasNext()) {
+	            if(iter.next().getId() == userId) {
+	            	return true;
+	            }
+	            
+	        }
+		 return false;
+	}
+
+		
 }

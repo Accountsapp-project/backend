@@ -10,7 +10,7 @@ import com.mycompany.accountsapp.pojo.Group;
 import com.mycompany.accountsapp.pojo.User;
 
 @Repository
-public interface GroupRepository extends CrudRepository<Group,Integer>	 {
+public interface GroupRepository extends CrudRepository<Group,Long>	 {
 	
 	
 }
